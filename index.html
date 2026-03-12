@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemeenteraadsverkiezingen 2026</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #8098FF;
+            --blue-dark: #4a6ed4;
+            --red: #F47D5B;
+            --red-dark: #c45a3d;
+            --green: #B4DBA2;
+            --green-dark: #7cb668;
+            --green-darker: #5a9a4a;
+            --purple: #A09AC8;
+            --purple-dark: #7a72a8;
+            --yellow: #FEDF9E;
+            --yellow-dark: #d4b870;
+            --grey: #F6F5F9;
+            --black: #0E0705;
+            --teal: #A2E1FF;
+            --teal-dark: #6bc4e8;
+            --pink: #FFB6BB;
+        }
+
+        .reveal {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--grey);
+        }
+
+        .reveal .slides section {
+            background: var(--grey);
+            font-size: 0.9em;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            text-transform: none;
+            font-weight: 700;
+            color: var(--black);
+            text-align: left;
+        }
+
+        .reveal h1 {
+            font-size: 1.9em;
+        }
+
+        .reveal h2 {
+            font-size: 1.5em;
+            margin-bottom: 0.4em;
+        }
+
+        .reveal h3 {
+            font-size: 0.9em;
+        }
+
+        .reveal p {
+            margin: 0 0 0.4em 0;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .reveal ul {
+            text-align: left;
+            margin: 0;
+        }
+
+        .reveal li {
+            margin-bottom: 0.25em;
+            line-height: 1.35;
+            font-size: 0.95em;
+        }
+
+        .reveal section {
+            padding: 10px 0 10px 40px;
+            text-align: left;
+        }
+
+        /* Slide header bar */
+        .slide-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 40px;
+            font-size: 0.55em;
+            z-index: 100;
+        }
+
+        .slide-header .header-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 280px;
+        }
+
+        .slide-header .header-line-short {
+            width: 100%;
+            height: 2.5px;
+            background: var(--black);
+        }
+
+        .slide-header .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            flex: 1;
+            margin-left: 60px;
+        }
+
+        .slide-header .header-line-long {
+            width: 100%;
+            height: 2.5px;
+            background: var(--black);
+        }
+
+        .slide-header .header-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--black);
+            padding-top: 6px;
+            white-space: nowrap;
+        }
+
+        .slide-header .header-brand strong {
+            font-weight: 700;
+        }
+
+        .slide-header .header-brand em {
+            font-style: italic;
+            font-weight: 400;
+            color: #475569;
+        }
+
+        .slide-header .header-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 0.75em;
+            padding-top: 9px;
+        }
+
+        /* Ensure slide content doesn't overlap header */
+        .reveal section {
+            padding-top: 60px;
+        }
+
+        /* Center title and section-divider slides */
+        .reveal section.center-slide {
+            text-align: center;
+        }
+
+        .reveal section.center-slide h1,
+        .reveal section.center-slide h2,
+        .reveal section.center-slide p {
+            text-align: center;
+        }
+
+        .reveal section.center-slide.present {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .reveal section.center-slide.past,
+        .reveal section.center-slide.future {
+            position: absolute !important;
+        }
+
+        .small-text {
+            font-size: 0.55em;
+            color: #475569;
+        }
+
+        .subtitle {
+            font-size: 0.85em;
+            color: #475569;
+            margin-top: 0.2em;
+        }
+
+        .highlight-box {
+            background: white;
+            border-left: 4px solid var(--blue);
+            padding: 0.6em 0.8em;
+            margin: 0.5em 0;
+            text-align: left;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .highlight-box.green { border-left-color: var(--green-dark); }
+        .highlight-box.red { border-left-color: var(--red); }
+        .highlight-box.purple { border-left-color: var(--purple); }
+        .highlight-box.yellow { border-left-color: var(--yellow-dark); }
+        .highlight-box.teal { border-left-color: var(--teal-dark); }
+
+        /* Cover slide */
+        .reveal section.cover-slide {
+            padding: 0 !important;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+        }
+
+        .cover-slide .slide-header .header-line-short,
+        .cover-slide .slide-header .header-line-long {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .cover-slide .slide-header .header-brand,
+        .cover-slide .slide-header .header-brand em,
+        .cover-slide .slide-header .header-number {
+            color: white;
+        }
+
+        .cover-slide .cover-content {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+            padding-bottom: 120px;
+            z-index: 1;
+        }
+
+        .cover-slide .cover-content h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: white;
+            font-size: 2.2em;
+            font-weight: 700;
+            text-align: left;
+            line-height: 1.08;
+            margin: 0;
+            max-width: 70%;
+        }
+
+        .cover-slide .cover-content .cover-subtitle {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85em;
+            margin-top: 0.8em;
+            text-align: left;
+        }
+
+        .cover-slide .cover-logo {
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .cover-slide .cover-logo .logo-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.55em;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Section break */
+        .reveal section.section-break {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+        }
+
+        .section-break .section-title {
+            color: white;
+        }
+
+        .section-break .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Journey cards */
+        .journey-grid {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 0.7em;
+            margin-top: 1em;
+        }
+
+        .journey-card {
+            background: white;
+            padding: 0.8em 0.7em;
+            border-radius: 10px;
+            flex: 1;
+            max-width: 230px;
+            text-align: left;
+            border: 1.5px solid #e2e0e8;
+            border-top: 3.5px solid var(--blue);
+            position: relative;
+        }
+
+        .journey-card:nth-child(2) { border-top-color: var(--green-dark); }
+        .journey-card:nth-child(3) { border-top-color: var(--red); }
+        .journey-card:nth-child(4) { border-top-color: var(--purple); }
+        .journey-card:nth-child(5) { border-top-color: var(--teal-dark); }
+
+        .journey-card .step-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.38em;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4em;
+        }
+
+        .journey-card h3 {
+            font-size: 0.55em;
+            margin-bottom: 0.25em;
+            text-align: left;
+        }
+
+        .journey-card p {
+            font-size: 0.42em;
+            color: #475569;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* Theme grid */
+        .theme-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.6em;
+            margin-top: 0.8em;
+        }
+
+        .theme-grid.two-by-two {
+            grid-template-columns: 1fr 1fr;
+            max-width: 900px;
+        }
+
+        .theme-card {
+            background: white;
+            padding: 0.7em;
+            border-radius: 8px;
+            border: 1.5px solid #e2e0e8;
+            text-align: left;
+        }
+
+        .theme-card .theme-emoji {
+            font-size: 1.1em;
+            margin-bottom: 0.3em;
+        }
+
+        .theme-card h3 {
+            font-size: 0.65em;
+            margin-bottom: 0.15em;
+        }
+
+        .theme-card p {
+            font-size: 0.45em;
+            color: #475569;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Task list */
+        .task-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6em;
+            margin-top: 0.8em;
+        }
+
+        .task-card {
+            background: white;
+            padding: 0.7em;
+            border-radius: 8px;
+            border: 1.5px solid #e2e0e8;
+            border-left: 3.5px solid var(--blue);
+            text-align: left;
+        }
+
+        .task-card:nth-child(2) { border-left-color: var(--green-dark); }
+        .task-card:nth-child(3) { border-left-color: var(--red); }
+        .task-card:nth-child(4) { border-left-color: var(--purple); }
+        .task-card:nth-child(5) { border-left-color: var(--teal-dark); }
+        .task-card:nth-child(6) { border-left-color: var(--yellow-dark); }
+
+        .task-card h3 {
+            font-size: 0.6em;
+            margin-bottom: 0.15em;
+        }
+
+        .task-card p {
+            font-size: 0.45em;
+            color: #475569;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Question prompt */
+        .question-box {
+            background: white;
+            border: 2px solid var(--purple);
+            border-radius: 10px;
+            padding: 0.8em 1em;
+            margin: 0.6em 0;
+            text-align: center;
+        }
+
+        .question-box p {
+            text-align: center;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: var(--black);
+            margin: 0;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 1.2em;
+            align-items: flex-start;
+            text-align: left;
+            max-width: 1150px;
+            margin: 0px;
+            margin-top: 10px;
+        }
+
+        .two-column .col {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .two-column ul {
+            margin: 0;
+            padding-left: 1em;
+            font-size: 0.7em;
+        }
+
+        .two-column li {
+            margin-bottom: 0.15em;
+            line-height: 1.25;
+        }
+
+        .two-column p {
+            font-size: 0.55em;
+            margin-bottom: 0.4em;
+            line-height: 1.3;
+        }
+
+        /* Government structure diagram */
+        .gov-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-top: 0.5em;
+            max-width: 850px;
+        }
+
+        .gov-diagram .gov-box {
+            background: white;
+            border: 1.5px solid #e2e0e8;
+            border-top: 3.5px solid var(--blue);
+            border-radius: 8px;
+            padding: 0.5em 1.2em;
+            text-align: center;
+            min-width: 280px;
+        }
+
+        .gov-diagram .gov-box h3 {
+            font-size: 0.6em;
+            margin: 0;
+            text-align: center;
+        }
+
+        .gov-diagram .gov-box p {
+            font-size: 0.4em;
+            color: #475569;
+            margin: 0.15em 0 0 0;
+            text-align: center;
+        }
+
+        .gov-diagram .gov-box.green { border-top-color: var(--green-dark); }
+        .gov-diagram .gov-box.red { border-top-color: var(--red); }
+        .gov-diagram .gov-box.purple { border-top-color: var(--purple); }
+        .gov-diagram .gov-box.teal { border-top-color: var(--teal-dark); }
+
+        .gov-diagram .gov-arrow {
+            font-size: 0.45em;
+            color: #94a3b8;
+            padding: 0.2em 0;
+            text-align: center;
+        }
+
+        .gov-diagram .gov-row {
+            display: flex;
+            gap: 0.8em;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .gov-diagram .gov-row .gov-box {
+            min-width: 200px;
+        }
+
+        /* Election pipeline */
+        .pipeline {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-top: 1em;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        .pipeline .pipe-box {
+            background: white;
+            border: 1.5px solid #e2e0e8;
+            border-top: 3.5px solid var(--blue);
+            border-radius: 8px;
+            padding: 0.5em 0.7em;
+            text-align: center;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .pipeline .pipe-box:nth-child(4n+3) { border-top-color: var(--green-dark); }
+        .pipeline .pipe-box:nth-child(4n+5) { border-top-color: var(--red); }
+        .pipeline .pipe-box:nth-child(4n+7) { border-top-color: var(--purple); }
+        .pipeline .pipe-box:nth-child(4n+9) { border-top-color: var(--teal-dark); }
+
+        .pipeline .pipe-box h3 {
+            font-size: 0.5em;
+            margin: 0;
+            text-align: center;
+        }
+
+        .pipeline .pipe-box p {
+            font-size: 0.38em;
+            color: #475569;
+            margin: 0.15em 0 0 0;
+            text-align: center;
+        }
+
+        .pipeline .pipe-arrow {
+            font-size: 0.55em;
+            color: #94a3b8;
+            padding: 0 0.3em;
+            flex-shrink: 0;
+        }
+
+        /* Image background slides */
+        .reveal section.cover-slide.has-bg-image {
+            background: none !important;
+        }
+
+        .cover-slide .cover-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .cover-slide .cover-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(22,33,62,0.8) 50%, rgba(15,52,96,0.75) 100%);
+        }
+
+        .reveal section.section-break.has-bg-image {
+            background: none !important;
+        }
+
+        .section-break .section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .section-break .section-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26,26,46,0.82) 0%, rgba(22,33,62,0.78) 50%, rgba(15,52,96,0.72) 100%);
+        }
+
+        .section-break .section-title,
+        .section-break .subtitle {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Slide with accent image */
+        .image-accent {
+            display: flex;
+            gap: 1.2em;
+            align-items: flex-start;
+            margin-top: 0.5em;
+        }
+
+        .image-accent .content-col {
+            flex: 1;
+        }
+
+        .image-accent .image-col {
+            flex: 0 0 280px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1.5px solid #e2e0e8;
+        }
+
+        .image-accent .image-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Quiz slides */
+        .quiz-slide {
+            padding-right: 40px !important;
+        }
+
+        .quiz-question {
+            background: white;
+            border: 2px solid var(--purple);
+            border-radius: 12px;
+            padding: 1em 1.2em;
+            margin: 0.6em 0;
+            max-width: 900px;
+        }
+
+        .quiz-question p {
+            font-size: 0.75em;
+            font-weight: 600;
+            color: var(--black);
+            margin: 0;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5em;
+            max-width: 900px;
+            margin-top: 0.5em;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 1.5px solid #e2e0e8;
+            border-radius: 8px;
+            padding: 0.5em 0.8em;
+            font-size: 0.6em;
+            text-align: left;
+        }
+
+        .quiz-option .option-letter {
+            font-weight: 700;
+            color: var(--purple-dark);
+            margin-right: 0.4em;
+        }
+
+        .quiz-answer {
+            max-width: 900px;
+            margin-top: 0.5em;
+        }
+
+        .quiz-answer .highlight-box {
+            font-size: 0.65em;
+        }
+
+        .quiz-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.55em;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.2em;
+        }
+
+        /* Photo credit */
+        .photo-credit {
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 0.35em;
+            color: rgba(255,255,255,0.4);
+            z-index: 2;
+        }
+
+        /* Sources slide */
+        .source-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5em 0;
+        }
+
+        .source-list li {
+            font-size: 0.55em;
+            margin-bottom: 0.4em;
+            padding-left: 0;
+        }
+
+        .source-list li a {
+            color: var(--blue-dark);
+            text-decoration: none;
+        }
+
+        .source-list li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Cover -->
+            <section class="cover-slide has-bg-image">
+                <div class="cover-bg" style="background-image: url('images/amsterdam-houses.jpg');"></div>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <div class="cover-content">
+                    <h1>Gemeente&shy;raads&shy;verkiezingen 2026</h1>
+                    <p class="cover-subtitle">Wat stemmen we, en waarom doet het ertoe?</p>
+                </div>
+                <div class="cover-logo">
+                    <div class="logo-text">Woensdag 18 maart 2026</div>
+                </div>
+                <div class="photo-credit">Foto: Unsplash</div>
+            </section>
+
+            <!-- SLIDE 2: Wat zijn gemeenteraadsverkiezingen? -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Wat zijn gemeente&shy;raads&shy;verkiezingen?</h2>
+                <div class="two-column">
+                    <div class="col">
+                        <p>Elke vier jaar kiezen we een nieuwe gemeenteraad. Dat is het hoogste bestuursorgaan van je gemeente: zij beslissen over alles wat er lokaal gebeurt.</p>
+                        <p>Denk aan je straat, je buurt, je school, het zwembad, de bibliotheek. De gemeenteraad bepaalt wat er met je belastinggeld gebeurt en hoe je stad eruitziet.</p>
+                        <p>Het is de verkiezing die het dichtst bij je dagelijks leven staat, maar waar de opkomst vaak het laagst is.</p>
+                    </div>
+                    <div class="col">
+                        <div class="highlight-box" style="font-size: 0.7em;">
+                            <p style="margin: 0;"><strong>Elke 4 jaar</strong></p>
+                            <p style="font-size: 0.85em; color: #475569; margin: 0;">Vorige keer: maart 2022</p>
+                        </div>
+                        <div class="highlight-box green" style="font-size: 0.7em;">
+                            <p style="margin: 0;"><strong>342 gemeenten</strong></p>
+                            <p style="font-size: 0.85em; color: #475569; margin: 0;">Allemaal tegelijk, door heel Nederland</p>
+                        </div>
+                        <div class="highlight-box red" style="font-size: 0.7em;">
+                            <p style="margin: 0;"><strong>Woensdag 18 maart 2026</strong></p>
+                            <p style="font-size: 0.85em; color: #475569; margin: 0;">Stembureaus open van 07:30 tot 21:00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Hoe werkt het gemeentebestuur? -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Hoe werkt het gemeente&shy;bestuur?</h2>
+                <div class="gov-diagram">
+                    <div class="gov-box">
+                        <h3>Inwoners</h3>
+                        <p>Alle stemgerechtigden in de gemeente</p>
+                    </div>
+                    <div class="gov-arrow">&#x2193; stemmen op</div>
+                    <div class="gov-box green">
+                        <h3>Gemeenteraad</h3>
+                        <p>45 zetels in Amsterdam &middot; volksvertegenwoordiging &middot; stelt kaders en controleert</p>
+                    </div>
+                    <div class="gov-arrow">&#x2193; benoemt</div>
+                    <div class="gov-row">
+                        <div class="gov-box red">
+                            <h3>Burgemeester</h3>
+                            <p>Benoemd door de Kroon &middot; voorzitter van de raad &amp; het college</p>
+                        </div>
+                        <div class="gov-box purple">
+                            <h3>Wethouders</h3>
+                            <p>Gekozen uit de coalitiepartijen &middot; dagelijks bestuur</p>
+                        </div>
+                    </div>
+                    <div class="gov-arrow">&#x2193; geven opdracht aan</div>
+                    <div class="gov-box teal">
+                        <h3>Ambtenaren</h3>
+                        <p>Voeren het beleid uit &middot; circa 18.000 in Amsterdam</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Wat beslist de gemeenteraad? -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Wat beslist de gemeenteraad?</h2>
+                <p style="font-size: 0.65em; color: #475569; margin-bottom: 0.3em;">De raad gaat over alles wat lokaal geregeld wordt. Een greep:</p>
+                <div class="theme-grid">
+                    <div class="theme-card" style="border-top: 3px solid var(--blue);">
+                        <div class="theme-emoji">&#127959;&#65039;</div>
+                        <h3>Bestemmings&shy;plannen</h3>
+                        <p>Waar mag gebouwd worden? Hoeveel woningen, kantoren, groen? De raad keurt bestemmingsplannen goed.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--red);">
+                        <div class="theme-emoji">&#128176;</div>
+                        <h3>Lokale belastingen</h3>
+                        <p>OZB, afvalstoffenheffing, toeristenbelasting. De raad stelt de tarieven vast.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--green-dark);">
+                        <div class="theme-emoji">&#128202;</div>
+                        <h3>Begroting</h3>
+                        <p>Jaarlijks circa &euro;8 miljard in Amsterdam. De raad bepaalt waar het geld naartoe gaat.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--purple);">
+                        <div class="theme-emoji">&#128220;</div>
+                        <h3>Verordeningen</h3>
+                        <p>Lokale regels: van terrassen tot parkeerbeleid, van evenementen tot kapvergunningen.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--teal-dark);">
+                        <div class="theme-emoji">&#129309;</div>
+                        <h3>Sociale voor&shy;zieningen</h3>
+                        <p>Bijstand, Wmo, jeugdzorg, schuldhulp&shy;verlening. De raad bepaalt het lokale beleid.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--yellow-dark);">
+                        <div class="theme-emoji">&#128110;</div>
+                        <h3>Openbare orde</h3>
+                        <p>Veiligheidsbeleid, camera&shy;toezicht, coffeeshop&shy;beleid, handhaving.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Wie mag stemmen? -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Wie mag stemmen?</h2>
+                <p style="font-size: 0.65em; color: #475569; margin-bottom: 0.3em;">De gemeenteraad is de enige verkiezing waar ook niet-Nederlanders mogen stemmen.</p>
+                <div style="max-width: 750px;">
+                    <div class="highlight-box" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>Nederlandse burgers van 18 jaar en ouder</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">Ingeschreven in de gemeente</p>
+                    </div>
+                    <div class="highlight-box green" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>EU-burgers</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">Woonachtig en ingeschreven in de gemeente</p>
+                    </div>
+                    <div class="highlight-box red" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>Niet-EU-burgers met 5+ jaar legaal verblijf</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">Ononderbroken en rechtmatig in Nederland</p>
+                    </div>
+                    <div class="highlight-box purple" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>Geen briefstemmen of stemmen vanuit het buitenland</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">Je moet fysiek naar een stembureau (of een volmacht geven)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Hoe werkt het stemmen? -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Hoe werkt het stemmen?</h2>
+                <div class="image-accent">
+                    <div class="image-col" style="flex: 0 0 180px; height: 120px;">
+                        <img src="images/stemmen.jpg" alt="Stembus">
+                    </div>
+                    <p style="font-size: 0.6em; color: #475569; align-self: center;">Je stemt met een rood potlood op een papieren stembiljet. Geen machines, geen digitaal: gewoon een vakje rood kleuren.</p>
+                </div>
+                <div class="journey-grid">
+                    <div class="journey-card">
+                        <div class="step-number">Stap 1</div>
+                        <h3>&#9993;&#65039; Stempas</h3>
+                        <p>Je ontvangt je stempas per post, uiterlijk 14 dagen voor de verkiezing. Geen pas? Neem contact op met de gemeente.</p>
+                    </div>
+                    <div class="journey-card">
+                        <div class="step-number">Stap 2</div>
+                        <h3>&#128270; Ori&euml;nteren</h3>
+                        <p>Gebruik de Stemwijzer of Kieskompas. Lees programma's. Kijk wie er op de lijst staan.</p>
+                    </div>
+                    <div class="journey-card">
+                        <div class="step-number">Stap 3</div>
+                        <h3>&#10003; Kiezen</h3>
+                        <p>Je stemt op &eacute;&eacute;n kandidaat. Hoe hoger die op de lijst staat, hoe groter de kans op een zetel. Maar voorkeurs&shy;stemmen tellen ook!</p>
+                    </div>
+                    <div class="journey-card">
+                        <div class="step-number">Stap 4</div>
+                        <h3>&#128499;&#65039; Stemmen</h3>
+                        <p>Ga naar een willekeurig stembureau in je gemeente met je stempas en ID. Rood potlood, &eacute;&eacute;n vakje kleuren.</p>
+                    </div>
+                    <div class="journey-card">
+                        <div class="step-number">Stap 5</div>
+                        <h3>&#128227; Uitslag</h3>
+                        <p>De uitslag is meestal dezelfde avond bekend. Daarna beginnen de coalitie&shy;onder&shy;handelingen.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Van stem naar beleid -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Van stem naar beleid</h2>
+                <p style="font-size: 0.65em; color: #475569; margin-bottom: 0.2em;">Na de verkiezingen gaat het echte werk beginnen. Dit is hoe jouw stem beleid wordt:</p>
+                <div class="pipeline">
+                    <div class="pipe-box">
+                        <h3>&#128499;&#65039; Verkiezingen</h3>
+                        <p>Inwoners brengen hun stem uit op een partij en kandidaat</p>
+                    </div>
+                    <div class="pipe-arrow">&#x2192;</div>
+                    <div class="pipe-box">
+                        <h3>&#128202; Zetel&shy;verdeling</h3>
+                        <p>Stemmen worden omgerekend naar raadszetels (45 in Amsterdam)</p>
+                    </div>
+                    <div class="pipe-arrow">&#x2192;</div>
+                    <div class="pipe-box">
+                        <h3>&#129309; Coalitie</h3>
+                        <p>Partijen vormen samen een meerderheid (23+ zetels)</p>
+                    </div>
+                    <div class="pipe-arrow">&#x2192;</div>
+                    <div class="pipe-box">
+                        <h3>&#127963;&#65039; College van B&amp;W</h3>
+                        <p>Wethouders worden benoemd, coalitie&shy;akkoord gesloten</p>
+                    </div>
+                    <div class="pipe-arrow">&#x2192;</div>
+                    <div class="pipe-box">
+                        <h3>&#128220; Beleid</h3>
+                        <p>Het college voert beleid uit, de raad controleert</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.55em; color: #475569; margin-top: 1em;">In 2022 duurden de coalitie&shy;onder&shy;handelingen in Amsterdam ruim 5 maanden.</p>
+            </section>
+
+            <!-- SLIDE 8: Section break - Amsterdam -->
+            <section class="center-slide section-break has-bg-image">
+                <div class="section-bg" style="background-image: url('images/grachten.jpg');"></div>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short" style="background: rgba(255,255,255,0.3);"></div>
+                        <div class="header-brand" style="color: white;"><strong>GR2026</strong> <em style="color: rgba(255,255,255,0.6);">&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long" style="background: rgba(255,255,255,0.3);"></div>
+                        <div class="header-number" style="color: white;"></div>
+                    </div>
+                </div>
+                <h1 class="section-title">Amsterdam</h1>
+                <p class="subtitle">Wat speelt er in onze gemeente?</p>
+                <div class="photo-credit">Foto: Unsplash</div>
+            </section>
+
+            <!-- SLIDE 9: Waar maken Amsterdammers zich zorgen over? -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Waar maken Amsterdammers zich zorgen over?</h2>
+                <p style="font-size: 0.6em; color: #475569; margin-bottom: 0.3em;">Bron: OIS Amsterdam &mdash; Burgermonitor</p>
+                <div class="theme-grid two-by-two">
+                    <div class="theme-card" style="border-top: 3px solid var(--red);">
+                        <div class="theme-emoji">&#127968;</div>
+                        <h3>Wonen <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: var(--red-dark);">52%</span></h3>
+                        <p>Betaalbare woningen zijn schaars. Lange wachtlijsten voor sociale huur, stijgende koopprijzen, en te weinig nieuwbouw. Veruit de grootste zorg.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--purple);">
+                        <div class="theme-emoji">&#128104;&#8205;&#128104;&#8205;&#128102;&#8205;&#128102;</div>
+                        <h3>Verharding samenleving <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: var(--purple-dark);">31%</span></h3>
+                        <p>Polarisatie, onderlinge spanningen, en het gevoel dat de samenleving harder wordt. Sinds 7 oktober nog meer gevoeld.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--blue);">
+                        <div class="theme-emoji">&#128110;</div>
+                        <h3>Veiligheid <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: var(--blue-dark);">25%</span></h3>
+                        <p>Straatcriminaliteit, ondermijning, en een gevoel van onveiligheid in bepaalde buurten en op het OV.</p>
+                    </div>
+                    <div class="theme-card" style="border-top: 3px solid var(--teal-dark);">
+                        <div class="theme-emoji">&#128747;</div>
+                        <h3>Toerisme &amp; drukte <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: var(--teal-dark);">24%</span></h3>
+                        <p>Massatoerisme, volle straten, Airbnb-overlast. De balans tussen leefbaarheid en economisch belang.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Politiek landschap -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Politiek landschap</h2>
+                <div class="two-column">
+                    <div class="col">
+                        <h3 style="font-size: 0.7em; margin-bottom: 0.4em;">Huidige coalitie (2022&ndash;2026)</h3>
+                        <div class="highlight-box" style="font-size: 0.65em;">
+                            <p style="margin: 0;"><strong>PvdA</strong> &mdash; 9 zetels</p>
+                        </div>
+                        <div class="highlight-box green" style="font-size: 0.65em;">
+                            <p style="margin: 0;"><strong>GroenLinks</strong> &mdash; 8 zetels</p>
+                        </div>
+                        <div class="highlight-box red" style="font-size: 0.65em;">
+                            <p style="margin: 0;"><strong>D66</strong> &mdash; 7 zetels</p>
+                        </div>
+                        <p style="font-size: 0.5em; color: #475569; margin-top: 0.3em;">Samen 24 van de 45 zetels (meerderheid = 23)</p>
+                        <p style="font-size: 0.5em; color: #475569;">42 partijen doen mee in 2026</p>
+                    </div>
+                    <div class="col">
+                        <h3 style="font-size: 0.7em; margin-bottom: 0.4em;">Peilingen (februari 2026)</h3>
+                        <div style="font-size: 0.55em;">
+                            <div style="display: flex; align-items: center; margin-bottom: 0.3em;">
+                                <span style="width: 100px; font-weight: 600;">PvdA</span>
+                                <div style="background: var(--red); height: 16px; width: calc(178px * 1.2); border-radius: 3px; margin-right: 8px;"></div>
+                                <span>17,8%</span>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 0.3em;">
+                                <span style="width: 100px; font-weight: 600;">GroenLinks</span>
+                                <div style="background: var(--green-dark); height: 16px; width: calc(162px * 1.2); border-radius: 3px; margin-right: 8px;"></div>
+                                <span>16,2%</span>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 0.3em;">
+                                <span style="width: 100px; font-weight: 600;">D66</span>
+                                <div style="background: var(--blue); height: 16px; width: calc(154px * 1.2); border-radius: 3px; margin-right: 8px;"></div>
+                                <span>15,4%</span>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 0.3em;">
+                                <span style="width: 100px; font-weight: 600;">VVD</span>
+                                <div style="background: var(--purple); height: 16px; width: calc(74px * 1.2); border-radius: 3px; margin-right: 8px;"></div>
+                                <span>7,4%</span>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 0.3em;">
+                                <span style="width: 100px; font-weight: 600;">PvdD &#x2191;</span>
+                                <div style="background: var(--teal-dark); height: 16px; width: calc(60px * 1.2); border-radius: 3px; margin-right: 8px;"></div>
+                                <span style="color: var(--green-darker);">stijgt</span>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 0.3em;">
+                                <span style="width: 100px; font-weight: 600;">Volt &#x2191;</span>
+                                <div style="background: var(--yellow-dark); height: 16px; width: calc(55px * 1.2); border-radius: 3px; margin-right: 8px;"></div>
+                                <span style="color: var(--green-darker);">stijgt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Wat staat er op het spel? -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Wat staat er op het spel?</h2>
+                <div style="max-width: 900px;">
+                    <div class="highlight-box" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>&#127959;&#65039; Woningbouw &amp; Haven-Stad</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.15em 0 0 0;">Het grootste bouwproject van Nederland: 70.000 woningen in het havengebied. De nieuwe raad beslist over tempo, betaalbaarheid en duurzaamheid.</p>
+                    </div>
+                    <div class="highlight-box green" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>&#128663; Autoluw beleid</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.15em 0 0 0;">Minder parkeerplekken, hogere parkeertarieven, knips en straten afsluiten. Populair bij sommigen, omstreden bij anderen. Gaat de volgende raad hiermee door?</p>
+                    </div>
+                    <div class="highlight-box red" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>&#129309; Sociale voorzieningen</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.15em 0 0 0;">Bezuinigingen op jeugdzorg en Wmo raken duizenden Amsterdammers. Wie draait er op voor de tekorten: het Rijk, of de stad zelf?</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.55em; color: #475569; margin-top: 0.6em; max-width: 900px;">De komende vier jaar worden bepalend voor hoe Amsterdam er in 2030 uitziet. Jouw stem bepaalt wie daar&shy;over beslist.</p>
+            </section>
+
+            <!-- SLIDE 12: Doe mee -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Doe mee</h2>
+                <div class="question-box" style="max-width: 800px; margin-bottom: 0.8em;">
+                    <p>Wat kun jij doen?</p>
+                </div>
+                <div style="max-width: 800px;">
+                    <div class="highlight-box" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>&#128218; Informeer je</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.15em 0 0 0;">Doe de Stemwijzer, lees een paar programma's, kijk naar de kandidatenlijsten. Het hoeft niet allemaal: een half uurtje helpt al.</p>
+                    </div>
+                    <div class="highlight-box green" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>&#128499;&#65039; Ga stemmen</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.15em 0 0 0;">Woensdag 18 maart, 07:30&ndash;21:00, elk stembureau in je gemeente. Neem je stempas en ID mee.</p>
+                    </div>
+                    <div class="highlight-box red" style="font-size: 0.7em;">
+                        <p style="margin: 0;"><strong>&#128172; Praat erover</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.15em 0 0 0;">Vertel je vrienden en buren dat er verkiezingen zijn. Veel mensen weten het simpelweg niet, of denken dat het niet uitmaakt. Jij weet nu beter.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Bronnen -->
+            <section>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <h2>Bronnen</h2>
+                <p style="font-size: 0.6em; color: #475569; margin-bottom: 0.5em;">Meer weten? Hier kun je verder lezen:</p>
+                <div style="max-width: 800px;">
+                    <div class="highlight-box" style="font-size: 0.65em;">
+                        <p style="margin: 0;"><strong>Gemeente Amsterdam &mdash; Verkiezingen</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">amsterdam.nl/verkiezingen</p>
+                    </div>
+                    <div class="highlight-box green" style="font-size: 0.65em;">
+                        <p style="margin: 0;"><strong>Stemwijzer</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">stemwijzer.nl &mdash; beantwoord stellingen en ontdek welke partij bij je past</p>
+                    </div>
+                    <div class="highlight-box red" style="font-size: 0.65em;">
+                        <p style="margin: 0;"><strong>Kieskompas</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">kieskompas.nl &mdash; alternatieve stemhulp met visuele positionering</p>
+                    </div>
+                    <div class="highlight-box purple" style="font-size: 0.65em;">
+                        <p style="margin: 0;"><strong>OIS Amsterdam &mdash; Burgermonitor</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">onderzoek.amsterdam.nl &mdash; data over wat Amsterdammers bezighoudt</p>
+                    </div>
+                    <div class="highlight-box teal" style="font-size: 0.65em;">
+                        <p style="margin: 0;"><strong>Kiesraad</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0;">kiesraad.nl &mdash; officieel orgaan voor verkiezingen in Nederland</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Quiz section break -->
+            <section class="center-slide section-break has-bg-image">
+                <div class="section-bg" style="background-image: url('images/amsterdam-bike.jpg');"></div>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short" style="background: rgba(255,255,255,0.3);"></div>
+                        <div class="header-brand" style="color: white;"><strong>GR2026</strong> <em style="color: rgba(255,255,255,0.6);">&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long" style="background: rgba(255,255,255,0.3);"></div>
+                        <div class="header-number" style="color: white;"></div>
+                    </div>
+                </div>
+                <h1 class="section-title">Quiz!</h1>
+                <p class="subtitle">Heb je opgelet? Vijf vragen over wat we net besproken hebben.</p>
+                <div class="photo-credit">Foto: Unsplash</div>
+            </section>
+
+            <!-- SLIDE 15: Quiz vraag 1 -->
+            <section class="quiz-slide">
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <div class="quiz-number">Vraag 1 van 5</div>
+                <div class="quiz-question">
+                    <p>Hoeveel zetels heeft de gemeenteraad van Amsterdam?</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><span class="option-letter">A</span> 35 zetels</div>
+                    <div class="quiz-option"><span class="option-letter">B</span> 39 zetels</div>
+                    <div class="quiz-option"><span class="option-letter">C</span> 45 zetels</div>
+                    <div class="quiz-option"><span class="option-letter">D</span> 51 zetels</div>
+                </div>
+                <div class="quiz-answer fragment">
+                    <div class="highlight-box green">
+                        <p style="margin: 0;"><strong>C &mdash; 45 zetels</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.1em 0 0 0;">Amsterdam heeft als grootste gemeente 45 raadszetels. Kleinere gemeenten hebben er minder (minimaal 9).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Quiz vraag 2 -->
+            <section class="quiz-slide">
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <div class="quiz-number">Vraag 2 van 5</div>
+                <div class="quiz-question">
+                    <p>Wie kiest de burgemeester van Amsterdam?</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><span class="option-letter">A</span> De inwoners, via verkiezingen</div>
+                    <div class="quiz-option"><span class="option-letter">B</span> De gemeenteraad</div>
+                    <div class="quiz-option"><span class="option-letter">C</span> De Kroon (op voordracht van de raad)</div>
+                    <div class="quiz-option"><span class="option-letter">D</span> De minister-president</div>
+                </div>
+                <div class="quiz-answer fragment">
+                    <div class="highlight-box green">
+                        <p style="margin: 0;"><strong>C &mdash; De Kroon</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.1em 0 0 0;">De burgemeester wordt benoemd bij Koninklijk Besluit, op voordracht van de gemeenteraad. Je stemt er dus niet direct op!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Quiz vraag 3 -->
+            <section class="quiz-slide">
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <div class="quiz-number">Vraag 3 van 5</div>
+                <div class="quiz-question">
+                    <p>Welk onderwerp baart Amsterdammers de meeste zorgen?</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><span class="option-letter">A</span> Veiligheid</div>
+                    <div class="quiz-option"><span class="option-letter">B</span> Toerisme &amp; drukte</div>
+                    <div class="quiz-option"><span class="option-letter">C</span> Wonen</div>
+                    <div class="quiz-option"><span class="option-letter">D</span> Verharding samenleving</div>
+                </div>
+                <div class="quiz-answer fragment">
+                    <div class="highlight-box green">
+                        <p style="margin: 0;"><strong>C &mdash; Wonen (52%)</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.1em 0 0 0;">Meer dan de helft van de Amsterdammers noemt wonen als grootste zorg. Betaalbaarheid en beschikbaarheid zijn de kern.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Quiz vraag 4 -->
+            <section class="quiz-slide">
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <div class="quiz-number">Vraag 4 van 5</div>
+                <div class="quiz-question">
+                    <p>Mag je als EU-burger stemmen bij de gemeenteraads&shy;verkiezingen?</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><span class="option-letter">A</span> Ja, als je ingeschreven staat in de gemeente</div>
+                    <div class="quiz-option"><span class="option-letter">B</span> Nee, alleen Nederlanders mogen stemmen</div>
+                    <div class="quiz-option"><span class="option-letter">C</span> Alleen na 5 jaar verblijf in Nederland</div>
+                    <div class="quiz-option"><span class="option-letter">D</span> Alleen als je de Nederlandse nationaliteit hebt aangevraagd</div>
+                </div>
+                <div class="quiz-answer fragment">
+                    <div class="highlight-box green">
+                        <p style="margin: 0;"><strong>A &mdash; Ja!</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.1em 0 0 0;">EU-burgers mogen stemmen bij gemeenteraads&shy;verkiezingen als ze ingeschreven staan. De 5-jaarseis geldt alleen voor niet-EU-burgers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Quiz vraag 5 -->
+            <section class="quiz-slide">
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short"></div>
+                        <div class="header-brand"><strong>GR2026</strong> <em>&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long"></div>
+                        <div class="header-number"></div>
+                    </div>
+                </div>
+                <div class="quiz-number">Vraag 5 van 5</div>
+                <div class="quiz-question">
+                    <p>Hoeveel partijen doen mee aan de gemeenteraads&shy;verkiezingen in Amsterdam in 2026?</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><span class="option-letter">A</span> 12</div>
+                    <div class="quiz-option"><span class="option-letter">B</span> 26</div>
+                    <div class="quiz-option"><span class="option-letter">C</span> 42</div>
+                    <div class="quiz-option"><span class="option-letter">D</span> 58</div>
+                </div>
+                <div class="quiz-answer fragment">
+                    <div class="highlight-box green">
+                        <p style="margin: 0;"><strong>C &mdash; 42 partijen</strong></p>
+                        <p style="font-size: 0.85em; color: #475569; margin: 0.1em 0 0 0;">Er doen maar liefst 42 partijen mee in Amsterdam. Van landelijke partijen tot hyper-lokale lijsten.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 20: Vragen? -->
+            <section class="center-slide section-break has-bg-image">
+                <div class="section-bg" style="background-image: url('images/amsterdam-architecture.jpg');"></div>
+                <div class="slide-header">
+                    <div class="header-left">
+                        <div class="header-line-short" style="background: rgba(255,255,255,0.3);"></div>
+                        <div class="header-brand" style="color: white;"><strong>GR2026</strong> <em style="color: rgba(255,255,255,0.6);">&middot; Gemeenteraad</em></div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-line-long" style="background: rgba(255,255,255,0.3);"></div>
+                        <div class="header-number" style="color: white;"></div>
+                    </div>
+                </div>
+                <h1 class="section-title">Vragen?</h1>
+                <p class="subtitle">Ga stemmen op 18 maart!</p>
+                <div class="photo-credit">Foto: Unsplash</div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: false,
+            transition: 'slide',
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            slideNumber: false
+        });
+
+        // Auto-number slides
+        Reveal.on('ready', () => {
+            document.querySelectorAll('.slides > section').forEach((section, i) => {
+                const num = section.querySelector('.header-number');
+                if (num) num.textContent = i + 1;
+            });
+        });
+    </script>
+</body>
+</html>
